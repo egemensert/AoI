@@ -70,7 +70,7 @@ def plot_durations(durations_t, means):
         plt.plot(means)
 
     plt.pause(0.001)  # pause a bit so that plots are updated
-    plt.savefig('figfig')
+    plt.savefig('training')
 
 if __name__ == "__main__":
     env = gym.make('CartPole-v0')
