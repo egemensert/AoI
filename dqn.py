@@ -1,3 +1,5 @@
+""" Inspired by https://keon.io/deep-q-learning/ """
+
 import gym
 import numpy as np
 from keras.models import Sequential, Model
@@ -10,6 +12,7 @@ import random
 
 import matplotlib
 import matplotlib.pyplot as plt
+
 
 class DQNAgent:
     def __init__(self, state_size, action_size):
@@ -82,7 +85,6 @@ if __name__ == "__main__":
     for e in range(episodes):
         state = env.reset()
         state = state.reshape((1, 4))
-
         for time_t in range(500):
             action = agent.act(state)
 
@@ -92,6 +94,8 @@ if __name__ == "__main__":
             agent.remember(state, action, reward, next_state, done)
 
             state = next_state
+
+            env.render()
 
             if done:
                 durations.append(time_t)
